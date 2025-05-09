@@ -44,16 +44,12 @@ In this profile, a `CreateAction` must have the `instrument` property. We can en
 
 ```json
 {
-  "@context": {
-    "sh": "http://www.w3.org/ns/shacl#",
-    "schema": "http://schema.org/",
-  },
   "@id": "#CreateActionShape",
-  "@type": "sh:NodeShape",
-  "sh:targetClass": "schema:CreateAction",
-  "sh:property": {
-    "sh:path": "schema:instrument",
-    "sh:minCount": 1
+  "@type": "NodeShape",
+  "targetClass": "CreateAction",
+  "property": {
+    "path": "instrument",
+    "minCount": 1
   }
 }
 ```
