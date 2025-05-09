@@ -14,7 +14,7 @@ The use cases for these schemas are typically:
 
 I propose that we encourage putting a SHACL schema definition within `ro-crate-metadata.json` of the profile crate.
 
-For example, consider the [Process Run Profile](https://www.researchobject.org/workflow-run-crate/profiles/process_run_crate/), which is a great example because it already has RDFS, already has validation rules in a human-readable form, and is a relatively small profile.
+For example, consider the [Process Run Profile](https://www.researchobject.org/workflow-run-crate/profiles/process_run_crate/), which is a great example because it already has validation rules in a human-readable form, and is a relatively small profile.
 
 To support this, we first need to add the SHACL vocabulary to the RO-Crate context:
 
@@ -62,9 +62,8 @@ In this profile, a `CreateAction` must have the `instrument` property. We can en
 
 * SHACL is itself is written in RDF, so we don't need a new file containing the schema as we would with say a LinkML schema
 * SHACL provides the vocabulary we need for typical validation:
-    * Range: `rdfs:range`
-    * Domain: `rdfs:domain`
-    * Required/optional/cardinality: `owl:maxCardinality` and `owl:minCardinality`
+    * Range: [`sh:class`](https://www.w3.org/TR/shacl/#ClassConstraintComponent)
+    * Required/optional/cardinality: [`sh:minCount` and `sh:maxCount`](https://www.w3.org/TR/shacl/#MinCountConstraintComponent)
 * SHACL is already used in the `rocrate-validator`
 
 # Generating other schemas
