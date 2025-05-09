@@ -60,7 +60,7 @@ In this profile, a `CreateAction` must have the `instrument` property. We can en
 * SHACL provides the vocabulary we need for typical validation:
     * Range: [`sh:class`](https://www.w3.org/TR/shacl/#ClassConstraintComponent)
     * Required/optional/cardinality: [`sh:minCount` and `sh:maxCount`](https://www.w3.org/TR/shacl/#MinCountConstraintComponent)
-* SHACL is already used in the `rocrate-validator`
+* SHACL is already used in the [`rocrate-validator`](https://github.com/crs4/rocrate-validator)
 
 # Generating other schemas
 
@@ -76,9 +76,9 @@ From there, we can extract constraints and convert them into a mode file.
 I have previously tested profile definition and generation using LinkML: [`WEHI-SODA-Hub/proclaim`](https://github.com/WEHI-SODA-Hub/proclaim).
 My main issues with this approach are [explained here](https://github.com/WEHI-SODA-Hub/proclaim/blob/main/linkml_issues.md). In brief:
 * This requires introducing a new file format (YAML), new syntax etc
-* RO-Crate concepts such as "data entities" aren't readily modelled using LinkML's type system
+* RO-Crate concepts such as "data entities" which are not actually classes aren't readily modelled using LinkML's type system
 * Profile validations would probably require re-defining LinkML classes. Modelling the validation as standalone constraints are much simpler to reason with.
-* LinkML can't make statements about the graph itself, such as the existence of certain entities (?)
+* LinkML can't easily make statements about the graph itself, such as the existence of certain entities, whereas SHACL can
 * LinkML doesn't yet support "extra" properties that are not defined in the schema
 * The LinkML SHACL generator is not production ready, meaning that we would have no way to directly *use* the schemas
 * Various runtime features are missing from LinkML
