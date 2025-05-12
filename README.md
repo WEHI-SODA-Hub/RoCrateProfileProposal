@@ -22,6 +22,7 @@ To support this, we first need to add the SHACL vocabulary to the RO-Crate conte
 "@context": {
     "sh": "http://www.w3.org/ns/shacl#",
     "NodeShape": "sh:NodeShape",
+    "PropertyShape": "sh:PropertyShape",
     "targetClass": "sh:targetClass",
     "property": "sh:property",
     "path": "sh:path"
@@ -34,6 +35,7 @@ We might choose to "namespace" these terms with a prefix or suffix, in order to 
 "@context": {
     "sh": "http://www.w3.org/ns/shacl#",
     "NodeShapeSh": "sh:NodeShape",
+    "PropertyShapeSh": "sh:PropertyShape",
     "targetClassSh": "sh:targetClass",
     "propertySh": "sh:property",
     "pathSh": "sh:path"
@@ -43,16 +45,25 @@ We might choose to "namespace" these terms with a prefix or suffix, in order to 
 In this profile, a `CreateAction` must have the `instrument` property. We can encode this using SHACL inside the `ro-crate-metadata.json` like this:
 
 ```json
-{
-  "@id": "#CreateActionShape",
-  "@type": "NodeShape",
-  "targetClass": "CreateAction",
-  "property": {
-    "path": "instrument",
-    "minCount": 1
-  }
-}
+[
+    {
+        "@id": "#CreateActionShape",
+        "@type": "NodeShape",
+        "targetClass": "CreateAction",
+        "property": [
+            {"@id": "_:CreateActionInstrumentConstraint"}
+        ],
+    },
+    {
+        "@id": "_:CreateActionInstrumentConstraint",
+        "@type": "PropertyShape",
+        "path": "instrument",
+        "minCount": 1
+    }
+]
 ```
+
+Unfortunately the SHACL has to be somewhat more verbose [due to the restriction that RO-Crate JSON is flattened](https://www.researchobject.org/ro-crate/specification/1.1/structure.html#ro-crate-metadata-file-ro-crate-metadatajson)
 
 # Why SHACL?
 
