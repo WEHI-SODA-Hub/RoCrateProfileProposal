@@ -111,7 +111,8 @@ Next, we need an example document that should fail the validation:
 }
 ```
 
-Applying the validation will then report:
+Applying the validation using
+[`pySHACL`](https://github.com/RDFLib/pySHACL) will then report:
 
     Validation Report
     Conforms: False
@@ -153,7 +154,8 @@ Which no longer violates the SHACL constraints:
     [`sh:class`](https://www.w3.org/TR/shacl/#ClassConstraintComponent)
   - Required/optional/cardinality: [`sh:minCount` and
     `sh:maxCount`](https://www.w3.org/TR/shacl/#MinCountConstraintComponent)
-  - Many others
+  - Many others [listed
+    here](https://www.w3.org/TR/shacl/#core-components)
 - SHACL is already used in the
   [`rocrate-validator`](https://github.com/crs4/rocrate-validator)
 

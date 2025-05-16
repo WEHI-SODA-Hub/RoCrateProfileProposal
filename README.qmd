@@ -77,7 +77,7 @@ Next, we need an example document that should fail the validation:
 show_json("instrument/invalid.jsonld")
 ```
 
-Applying the validation will then report:
+Applying the validation using [`pySHACL`](https://github.com/RDFLib/pySHACL) will then report:
 ```{python}
 #| echo: false
 validate("instrument/schema.jsonld", "instrument/invalid.jsonld")
@@ -100,7 +100,7 @@ validate("instrument/schema.jsonld", "instrument/valid.jsonld")
 * SHACL provides the vocabulary we need for typical validation:
     * Range: [`sh:class`](https://www.w3.org/TR/shacl/#ClassConstraintComponent)
     * Required/optional/cardinality: [`sh:minCount` and `sh:maxCount`](https://www.w3.org/TR/shacl/#MinCountConstraintComponent)
-    * Many others
+    * Many others [listed here](https://www.w3.org/TR/shacl/#core-components)
 * SHACL is already used in the [`rocrate-validator`](https://github.com/crs4/rocrate-validator)
 
 # Generating other schemas
