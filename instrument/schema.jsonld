@@ -1,0 +1,17 @@
+{
+    "@context": "../context.jsonld",
+    "@graph": [
+        {
+            "@id": "#CreateActionShape",
+            "@type": "NodeShape",
+            "targetClass": { "@id": "schema:CreateAction" },
+            "property": { "@id": "_:CreateActionInstrumentConstraint" }
+        },
+        {
+            "@id": "_:CreateActionInstrumentConstraint",
+            "@type": "PropertyShape",
+            "path": { "@id": "schema:instrument" },
+            "minCount": 1
+        }
+    ]
+}

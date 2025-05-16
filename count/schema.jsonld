@@ -1,0 +1,23 @@
+{
+  "@context": "../context.jsonld",
+  "@graph": [
+    {
+      "@id": "#CountImagesNode",
+      "@type": "NodeShape",
+      "targetNode": { "@id": "schema:ImageObject" },
+      "property": { "@id": "_:CountImageProp" }
+    },
+    {
+      "@id": "_:CountImageProp",
+      "@type": "PropertyShape",
+      "path": { "@id": "_:CountImagePath" },
+      "minCount": 1,
+      "message": "The graph must have at least one ImageObject"
+    },
+    {
+      "@id": "_:CountImagePath",
+      "@type": "Thing",
+      "inversePath": { "@id": "rdf:type" }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+    "@context": "../context.jsonld",
+    "@graph": [
+        {
+            "@id": "#invalid_create_action",
+            "@type": "CreateAction"
+        }
+    ]
+}
